@@ -19,7 +19,7 @@ function App() {
     }
 
     setPassword(pass);
-  }, [length, isNumber, isCharacter]);
+  }, [length, isNumber, isCharacter, setPassword]);
 
   const copyPassword = useCallback(() => {
     passwordRef.current?.select();
