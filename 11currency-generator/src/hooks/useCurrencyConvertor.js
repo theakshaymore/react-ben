@@ -3,11 +3,9 @@ import { useState } from "react";
 function useCurrencyConvertor(currency) {
   const [data, setData] = useState({});
 
-  fetch(
-    `https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${currency}.json`
-  )
+  fetch(`https://open.er-api.com/v6/latest/${currency}`)
     .then((res) => res.json())
-    .then((res) => setData(res));
+    .then((res) => setData(res.rates));
 
   console.log(data);
   return data;
