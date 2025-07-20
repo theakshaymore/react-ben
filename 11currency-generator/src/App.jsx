@@ -8,22 +8,25 @@ function App() {
   const [to, setTo] = useState("inr");
   const [convertedAmount, setConvertedAmount] = useState(0);
 
-  const currencyInfo = () => {
-    useCurrencyConvertor(from);
-  };
+  const currencyInfo = useCurrencyConvertor(from);
 
   const options = Object.keys(currencyInfo);
 
   const swap = () => {
     setFrom(to);
     setTo(from);
-    setConvertedAmount(amount);
     setAmount(convertedAmount);
+    setConvertedAmount(amount);
   };
 
   const convert = () => {
+    if (!currencyInfo[to]) {
+      setConvertedAmount(0);
+      return;
+    }
     setConvertedAmount(amount * currencyInfo[to]);
   };
+
   return (
     <div
       className="w-full h-screen flex flex-wrap justify-center items-center bg-cover bg-no-repeat"
@@ -44,7 +47,7 @@ function App() {
                 label="From"
                 amount={amount}
                 currencyOptions={options}
-                onCurrencyChange={(currency) => setAmount(amount)}
+                onCurrencyChange={(currency) => setFrom(currency)}
                 selectedCurrency={from}
                 onAmountChange={(amount) => setAmount(amount)}
               />

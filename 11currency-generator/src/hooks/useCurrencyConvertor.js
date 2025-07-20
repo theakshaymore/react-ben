@@ -8,7 +8,7 @@ function useCurrencyConvertor(currency) {
       .then((res) => setData(res.rates));
 
     console.log(data);
-  }, currency);
+  }, [currency]);
 
   console.log(data);
   return data;
