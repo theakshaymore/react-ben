@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 
 function Github() {
-  const [data, setData] = useState();
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     fetch("https://api.github.com/users/theakshaymore")
@@ -13,10 +13,11 @@ function Github() {
       });
   }, []);
   return (
-    <div className="text-center m-4 bg-gray-600 text-white p-4 text-3xl">
-      <p>Github Details</p>
-      <p>Followers: {data.followers}</p>
-      <p>Github Details</p>
+    <div className="text-center m-4 bg-gray-600 text-white p-4 ">
+      <p className="text-3xl">Github Details</p>
+      <p className="text-2xl">Followers: {data.followers}</p>
+      <p className="text-2xl">Github Details</p>
+      <img src={data.avatar_url} alt="git picture" />
     </div>
   );
 }
