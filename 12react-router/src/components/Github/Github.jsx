@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLoaderData } from "react-router-dom";
 
 function Github() {
-  const [data, setData] = useState([]);
-
   const { gitusername = "theakshaymore" } = useParams();
 
-  useEffect(() => {
-    fetch(`https://api.github.com/users/${gitusername}`)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setData(data);
-      });
-  }, []);
+  const data = useLoaderData();
+
+  //   const [data, setData] = useState([]);
+  //   useEffect(() => {
+  //     fetch(`https://api.github.com/users/${gitusername}`)
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         console.log(data);
+  //         setData(data);
+  //       });
+  //   }, []);
+
   return (
     <div className="text-center m-4 bg-gray-600 text-white p-4 ">
       <p className="text-3xl">Github Details</p>
@@ -26,3 +28,9 @@ function Github() {
 }
 
 export default Github;
+
+export const githubInfoLoader = async ({ params }) => {
+  const gitusername = params.gitusername || "theakshaymore";
+  const res = await fetch(`https://api.github.com/users/${gitusername}`);
+  return res.json();
+};
