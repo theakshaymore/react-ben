@@ -29,6 +29,7 @@ function Github() {
 
 export default Github;
 
+//for optimization
 export const githubInfoLoader = async ({ params }) => {
   const gitusername = params.gitusername || "theakshaymore";
   const res = await fetch(`https://api.github.com/users/${gitusername}`);
