@@ -6,7 +6,32 @@ import { TodoProvider } from "./context";
 function App() {
   const [todos, setTodos] = uTeState([]);
 
-  const addTodo = (title) => {};
+  const addTodo = (title) => {
+    // creating new todo to add
+    const newTodo = {
+      id: Date.now(),
+      ...title,
+    };
+    // adding todo
+    setTodos((prev) => [newTodo, ...prev]);
+    // setTodos((prev) => [{ id: Date.now(), ...title }, ...prev]);
+  };
+
+  const editTodo = (id, title) => {
+    setTodos((prev) => prev.map((item) => (item.id === id ? title : item)));
+  };
+
+  const deleteTodo = (id) => {
+    setTodos((prev) => prev.filter((item) => item.id !== id));
+  };
+
+  const toggleComplete = (id) => {
+    setTodos((prev) =>
+      prev.map((item) =>
+        item.id === id ? { ...item, completed: !item.completed } : item
+      )
+    );
+  };
 
   return (
     <TodoProvider
