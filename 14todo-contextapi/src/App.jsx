@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 
 import { TodoProvider } from "./context";
 
 function App() {
-  const [todos, setTodos] = uTeState([]);
+  const [todos, setTodos] = useState([]);
 
   const addTodo = (title) => {
     // creating new todo to add
@@ -32,6 +32,18 @@ function App() {
       )
     );
   };
+
+  useEffect(() => {
+    const todos = JSON.parse(localStorage.getItem("todos"));
+
+    if (todos && todos.length > 0) {
+      setTodos(todos);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   return (
     <TodoProvider
