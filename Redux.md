@@ -26,3 +26,42 @@ combineSlices(): combines multiple slices into a single reducer, and allows "laz
 createAsyncThunk: accepts an action type string and a function that returns a promise, and generates a thunk that dispatches pending/fulfilled/rejected action types based on that promise
 createEntityAdapter: generates a set of reusable reducers and selectors to manage normalized data in the store
 The createSelector utility from the Reselect library, re-exported for ease of use.
+
+## configureStore():
+
+```
+import { configureStore } from "@reduxjs/toolkit";
+
+export const store = configureStore({});
+```
+
+## createReducer():
+
+```
+import { createSlice, nanoid } from "@reduxjs/toolkit";
+
+const initialState = {
+  todos: [
+    {
+      id: 1,
+      text: "akshay",
+    },
+  ],
+};
+
+export const todoSlice = createSlice({
+  name: "todo",
+  initialState: initialState,
+  reducers: {
+    addTodo: (state, action) => {
+      const todo = {
+        id: nanoid(),
+        text: action.payload.text,
+      };
+      state.todos.push(todo);
+    },
+    removeTodo: () => {},
+  },
+});
+
+```
