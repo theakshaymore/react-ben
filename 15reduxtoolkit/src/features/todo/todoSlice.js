@@ -29,7 +29,7 @@ export const todoSlice = createSlice({
       if (todo) {
         todo.text = action.payload.text;
       }
-      state.todos.push(todo);
+      // state.todos.push(todo);
     },
   },
 });
