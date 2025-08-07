@@ -54,8 +54,11 @@ utility from the Reselect library, re-exported for ease of use.
 
 ```
 import { configureStore } from "@reduxjs/toolkit";
+import todoReducer from "../features/todo/todoSlice";
 
-export const store = configureStore({});
+export const store = configureStore({
+  reducer: todoReducer,
+});
 ```
 
 ## createReducer():
@@ -83,8 +86,93 @@ export const todoSlice = createSlice({
       };
       state.todos.push(todo);
     },
-    removeTodo: () => {},
+    removeTodo: (state, action) => {
+      //state.todos.pop(action.payload.id);
+      state.todos = state.todos.filter((todo) => todo.id !== action.payload.id);
+    },
+    updateTodo: (state, action) => {
+      const todo = state.todos.find((todo) => todo.id === action.payload.id);
+      if (todo) {
+        todo.text = action.payload.text;
+      }
+      state.todos.push(todo);
+    },
   },
 });
+
+export const { addTodo, removeTodo, updateTodo } = todoSlice.actions;
+
+export default todoSlice.reducer;
+
+
+```
+
+## Usage in Apps
+
+### add (useDispatch)
+
+```
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addTodo } from "../features/todo/todoSlice";
+
+function AddTodo() {
+  const [input, setInput] = useState("");
+  const dispatch = useDispatch();
+
+  const addTodoHandler = (event) => {
+    event.preventDefault();
+    // dispatch(addTodo(input));
+    dispatch(addTodo({ text: input }));
+    setInput("");
+  };
+
+  return (
+    <form onSubmit={addTodoHandler}>
+      <input
+        type="text"
+        value={input}
+        onChange={(event) => setInput(event.target.value)}
+      />
+
+      <button type="submit" >Add Todo</button>
+    </form>
+  );
+}
+
+export default AddTodo;
+
+```
+
+### get (useSelector)
+
+```
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { removeTodo } from "../features/todo/todoSlice";
+
+function Todos() {
+  const todos = useSelector((state) => state.todos);
+  const dispatch = useDispatch();
+
+  return (
+    <>
+      <div>Todos</div>
+      <ul >
+        {todos.map((todo) => (
+          <li key={todo.id}>
+            <div>{todo.text}</div>
+            <button
+              onClick={() => dispatch(removeTodo({ id: todo.id }))}
+            >
+            </button>
+          </li>
+        ))}
+      </ul>
+    </>
+  );
+}
+
+export default Todos;
 
 ```
