@@ -25,10 +25,10 @@ export const todoSlice = createSlice({
       state.todos = state.todos.filter((todo) => todo.id !== action.payload.id);
     },
     updateTodo: (state, action) => {
-      const todo = (state.todos.id = action.payload.id);
-      todo = {
-        text: action.payload.text,
-      };
+      const todo = state.todos.find((todo) => todo.id === action.payload.id);
+      if (todo) {
+        todo.text = action.payload.text;
+      }
       state.todos.push(todo);
     },
   },
