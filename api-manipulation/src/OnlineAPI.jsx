@@ -17,31 +17,34 @@ function OnlineAPI() {
   };
   return (
     <div>
-      <h2>User List from API</h2>
-      <h3>User Count: {users.length}</h3>
-      <button onClick={getUsersFromAPI}>Get UserList</button>
+      <h2 className="text-2xl font-semibold">User List from API</h2>
+      <h3 className="text-sm text-gray-600 mb-4">User Count: {users.length}</h3>
+      <button
+        onClick={getUsersFromAPI}
+        className="mb-6 rounded bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-500"
+      >
+        Get UserList
+      </button>
+
       {users.map((user) => (
-        <div class="max-w-sm rounded overflow-hidden shadow-lg" key={user.id}>
+        <div
+          className="max-w-sm rounded overflow-hidden shadow-lg mb-6"
+          key={user.id}
+        >
           <img
-            class="w-full"
-            src={user.picture.large}
-            alt="Sunset in the mountains"
+            className="w-full h-30 object-cover"
+            src={user.picture.medium}
+            alt="User picture"
+            loading="lazy"
           />
-          <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2">
-              <p>{user.email}</p>
-              <p>{user.phone}</p>
+          <div className="px-6 py-4">
+            <div className="font-bold text-xl mb-2">
+              <p className="truncate">{user.email}</p>
+              <p className="text-gray-600">{user.phone}</p>
             </div>
           </div>
         </div>
       ))}
-      {/* {users.map((user) => (
-        <div key={user.id}>
-          <p>{user.email}</p>
-          <p>{user.phone}</p>
-          <img src={user.picture.medium} alt="user-image" />
-        </div>
-      ))} */}
     </div>
   );
 }
