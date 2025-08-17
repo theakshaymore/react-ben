@@ -3,6 +3,7 @@ import axios from "axios";
 
 function OnlineAPI() {
   const [users, setUsers] = useState([]);
+  let cancelToken;
 
   const getUsersFromAPI = async () => {
     try {
@@ -21,11 +22,21 @@ function OnlineAPI() {
     event.preventDefault();
     const query = event.target.value;
 
-    const response = await axios.get(
-      `https://api.freeapi.app/api/v1/public/randomusers?q=${query}`
-    );
+    if (cancelToken) {
+      cancelToken.cancel("Cancelled previous tokens");
+    }
+    cancelToken = axios.CancelToken.source();
 
-    console.log(response.data?.data?.data);
+    try {
+      const response = await axios.get(
+        `https://api.freeapi.app/api/v1/public/randomusers?q=${query}`,
+        { cancelToken: cancelToken.token }
+      );
+
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <div>
