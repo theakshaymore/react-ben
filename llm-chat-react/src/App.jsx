@@ -7,9 +7,8 @@ export default function App() {
   const [error, setError] = useState("");
   const scrollRef = useRef(null);
 
-  // Hardcoded OpenRouter API key (exposed). Replace with your key if needed.
-  const OPENROUTER_API_KEY =
-    "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";
+  // Get API key from environment variable
+  const OPENROUTER_API_KEY = import.meta.env.VITE_OPENROUTER_API_KEY;
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -21,6 +20,14 @@ export default function App() {
     e.preventDefault();
     const content = input.trim();
     if (!content) return;
+
+    if (!OPENROUTER_API_KEY) {
+      setError(
+        "Missing API key. Please check your .env file and restart the dev server or conatct Akshay!"
+      );
+      return;
+    }
+
     setError("");
 
     const nextMessages = [...messages, { role: "user", content }];
@@ -29,27 +36,41 @@ export default function App() {
 
     setIsLoading(true);
     try {
+      const requestBody = {
+        model: "anthropic/claude-3.7-sonnet",
+        max_tokens: 512,
+        messages: [
+          { role: "system", content: "You are a helpful assistant." },
+          ...nextMessages.map((m) => ({ role: m.role, content: m.content })),
+        ],
+      };
+
       const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${OPENROUTER_API_KEY}`,
           "HTTP-Referer": window.location.origin,
-          "X-Title": "Ben LLM Chat Box",
+          "X-Title": "Akshay LLM Chat Box",
         },
-        body: JSON.stringify({
-          model: "anthropic/claude-3.7-sonnet",
-          max_tokens: 512,
-          messages: [
-            { role: "system", content: "You are a helpful assistant." },
-            ...nextMessages.map((m) => ({ role: m.role, content: m.content })),
-          ],
-        }),
+        body: JSON.stringify(requestBody),
       });
 
       if (!res.ok) {
-        const text = await res.text();
-        throw new Error(text || `Request failed with status ${res.status}`);
+        const errorData = await res.json().catch(() => ({}));
+        let errorMessage = `Request failed with status ${res.status}`;
+
+        if (errorData.error?.code === 401) {
+          errorMessage =
+            "Invalid API key. Please check your OpenRouter API key.";
+        } else if (errorData.error?.code === 402) {
+          errorMessage =
+            "Insufficient credits. Please add credits to your OpenRouter account.";
+        } else if (errorData.error?.message) {
+          errorMessage = errorData.error.message;
+        }
+
+        throw new Error(errorMessage);
       }
 
       const data = await res.json();
@@ -90,9 +111,20 @@ export default function App() {
           {messages.length === 0 && (
             <div className="text-center text-gray-300 py-16">
               <div className="text-4xl font-bold mb-2">AKSHAY' AI CHAT</div>
-              <div className="text-sm text-gray-400 font-semibold italic">
+              <div className="text-sm text-gray-400 font-semibold italic mb-4">
                 powered by Claude Sonnet 3.7
               </div>
+              {/* {!OPENROUTER_API_KEY ? (
+                <div className="text-xs text-red-400 max-w-md mx-auto">
+                  ⚠️ API key not found. Please create a .env file with
+                  VITE_OPENROUTER_API_KEY and restart the dev server.
+                </div>
+              ) : (
+                <div className="text-xs text-gray-500 max-w-md mx-auto">
+                  Ready to chat! If you encounter issues, check the browser
+                  console for debugging info.
+                </div>
+              )} */}
             </div>
           )}
 
@@ -163,7 +195,7 @@ export default function App() {
           </div>
           {error && <div className="text-xs text-red-400 mt-2">{error}</div>}
           <div className="text-[10px] text-gray-500 mt-2">
-            Powered by OpenRouter. Do not share secrets.
+            Powered by Claude & OpenRouter.
           </div>
         </form>
       </footer>
