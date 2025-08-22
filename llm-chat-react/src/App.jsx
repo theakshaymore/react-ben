@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import logo from "./assets/logo.png";
 
 export default function App() {
   const [messages, setMessages] = useState([]);
@@ -78,24 +77,21 @@ export default function App() {
 
   return (
     <div className="h-screen w-full bg-black text-white flex flex-col">
-      <header className="border-b border-gray-800 px-4 py-3 flex items-center justify-between">
+      {/* <header className="border-b border-gray-800 px-4 py-3 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          {/* <div className="h-6 w-6 rounded bg-black border border-white" /> */}
-          {/* add logo here */}
-          <img src={logo} alt="AM" className="h-6 w-6" />
+          <div className="h-6 w-6 rounded bg-black border border-white" />
+          <h1 className="text-sm font-semibold">AM 🚀</h1>
         </div>
-        <div className="text-xs text-gray-400">
-          Claude Sonnet via OpenRouter
-        </div>
-      </header>
+        <div className="text-xs text-gray-400">via OpenRouter</div>
+      </header> */}
 
       <main ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-4">
         <div className="mx-auto max-w-3xl space-y-4">
           {messages.length === 0 && (
             <div className="text-center text-gray-300 py-16">
-              <div className="text-xl font-semibold mb-2">AKSHAY AI CHAT</div>
-              <div className="text-sm text-gray-400">
-                powered by Claude Sonnet 3.7 via OpenRouter
+              <div className="text-4xl font-bold mb-2">AKSHAY' AI CHAT</div>
+              <div className="text-sm text-gray-400 font-semibold italic">
+                powered by Claude Sonnet 3.7
               </div>
             </div>
           )}
