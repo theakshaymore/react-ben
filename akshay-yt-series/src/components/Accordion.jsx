@@ -6,7 +6,7 @@ function Accordion({ items }) {
 
   const clickHandler = (index) => {
     setCurrentIndex(currentIndex == index ? null : index);
-    console.log(currentIndex);
+    // console.log(currentIndex);
   };
   return !items || items.length == 0 ? (
     "No items available"
