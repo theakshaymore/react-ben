@@ -1,22 +1,22 @@
 import React, { useState } from "react";
 
 function Todo() {
-    // 
+  //
   const [todoList, setTodoList] = useState([
     { id: 1, text: "javascript", completed: false },
     { id: 2, text: "react", completed: false },
   ]);
 
-  const checkboxHandler = (id) => {
-    todoList.map(todo => {
-        if (todo.id == id) {
-           return  (...todo,
-            completed: !todo.completed
-        }else{
-            return todo
-        }
-  })
-  }
+  // const checkboxHandler = (id) => {
+  //   todoList.map(todo => {
+  //       if (todo.id == id) {
+  //          return  (...todo,
+  //           completed: !todo.completed
+  //       }else{
+  //           return todo
+  //       }
+  // })
+  // }
 
   return (
     <>
