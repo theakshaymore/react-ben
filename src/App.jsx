@@ -7,3 +7,4 @@ export default function App() {
 // await fetch("https://jsonplaceholder.typicode.com/photos").then((res) =>
 //   setProducts(res.json())
 // );
+//1
