@@ -21,10 +21,16 @@ const Pagination = () => {
 
   return (
     <div>
-      <h1>Pagination</h1>
-      {products.slice(5).map((product) => (
-        <ProductCard product={product} />
-      ))}
+      {products.length === 0 ? (
+        "No Products available"
+      ) : (
+        <div>
+          <h1>Pagination</h1>
+          {products.slice(5).map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
