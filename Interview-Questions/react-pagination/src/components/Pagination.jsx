@@ -24,7 +24,7 @@ const Pagination = () => {
       ) : (
         <div className="main-container">
           <h1>Pagination</h1>
-          <div className="product-card">
+          <div className="products-grid">
             {products.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}

@@ -1,12 +1,12 @@
 const PageCard = ({ product }) => {
   return (
-    <div key={product.id}>
+    <div className="product-card">
       <img
         src={product.image}
-        alt={product.image}
+        alt={product.title}
         className="product-card-img"
       />
-      <p>{product.price}</p>
+      <p className="product-title">{product.title}</p>
     </div>
   );
 };
