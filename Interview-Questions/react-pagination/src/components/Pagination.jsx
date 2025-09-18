@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import "./styles.css";
-import ProductCard from "./ProductCard.js";
+import ProductCard from "../components/PageCard";
 // import { FiChevronsLeft, FiChevronsRight } from "react-icons/fi";
 
 const PAGE_SIZE = 10;
@@ -10,11 +9,10 @@ const Pagination = () => {
 
   useEffect(() => {
     const getProducts = async () => {
-      const response = await fetch(
-        "https://jsonplaceholder.typicode.com/photos"
-      );
+      const response = await fetch("https://fakestoreapi.com/products");
       const data = await response.json();
       setProducts(data);
+      console.log(products);
     };
     getProducts();
   }, []);
@@ -26,7 +24,7 @@ const Pagination = () => {
       ) : (
         <div>
           <h1>Pagination</h1>
-          {products.slice(5).map((product) => (
+          {products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
