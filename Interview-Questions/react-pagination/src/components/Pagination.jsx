@@ -22,11 +22,13 @@ const Pagination = () => {
       {products.length === 0 ? (
         "No Products available"
       ) : (
-        <div>
+        <div className="main-container">
           <h1>Pagination</h1>
-          {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
+          <div className="product-card">
+            {products.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
         </div>
       )}
     </div>
