@@ -7,14 +7,22 @@
 
 .product-card {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  flex-wrap: wrap;
   padding: 1rem;
   border: 1px solid #ddd;
   border-radius: 8px;
 }
 
+.product-card > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .product-card-img {
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
 }
