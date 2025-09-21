@@ -9,6 +9,7 @@
 
 // console.log(data);
 
+// Functional Constructor
 function Person(fname, lname, contact) {
   this.fname = fname;
   this.lname = lname;
