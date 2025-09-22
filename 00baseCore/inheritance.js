@@ -14,7 +14,20 @@ p2.__proto__.fname = "new";
 
 let name = "akshay";
 
-console.log(name);
-console.log(name.__proto__);
+// console.log(name);
+// console.log(name.__proto__);
 
-console.log(typeof name);
+// console.log(typeof name);
+
+class Person {
+  constructor() {}
+
+  getName() {
+    return "I'm inside the class";
+  }
+}
+
+const obj1 = new Person();
+
+console.log(obj1.getName());
+console.log(obj1.__proto__.__proto__.__proto__);
