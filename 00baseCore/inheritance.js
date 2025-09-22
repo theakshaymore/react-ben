@@ -7,7 +7,14 @@ const p1 = {
 };
 
 const p2 = Object.create(p1);
-console.log("before: ", p2.getData());
+// console.log("before: ", p2.getData());
 p2.__proto__.fname = "new";
-console.log("after: ", p2.getData());
-console.log("after: ", p1.getData());
+// console.log("after: ", p2.getData());
+// console.log("after: ", p1.getData());
+
+let name = "akshay";
+
+console.log(name);
+console.log(name.__proto__);
+
+console.log(typeof name);
