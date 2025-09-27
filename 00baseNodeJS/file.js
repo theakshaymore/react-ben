@@ -8,10 +8,12 @@ const fs = require("fs");
 // const res = fs.readFileSync("./contacts.txt", "utf-8");
 // console.log(res);
 
-fs.readFile("./contacts.txt", "utf-8", (err, res) => {
-  if (err) {
-    console.log("ERROR: ", err);
-  } else {
-    console.log(res);
-  }
-});
+// fs.readFile("./contacts.txt", "utf-8", (err, res) => {
+//   if (err) {
+//     console.log("ERROR: ", err);
+//   } else {
+//     console.log(res);
+//   }
+// });
+
+fs.appendFileSync("./test.txt", `\nNew text`);
