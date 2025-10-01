@@ -1,7 +1,12 @@
 console.log(a);
-run();
+// console.log(funcc);
+// funcc();
 
+console.log(funcc);
 var a = 10;
 function run() {
-  console.log("runnng function.....");
+  //   console.log("runnng function.....");
+  return 2 + 2;
 }
+
+let funcc = run();
