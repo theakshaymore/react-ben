@@ -17,3 +17,8 @@ function run() {
 }
 
 run();
+
+var a = 10;
+var a = 6;
+
+console.log(a);
