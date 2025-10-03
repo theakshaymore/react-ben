@@ -1,9 +1,13 @@
 //
 function run() {
-  for (let i = 0; i <= 5; i++) {
-    setTimeout(function () {
-      console.log(i);
-    }, i * 1000);
+  for (var i = 0; i <= 5; i++) {
+    function inside(i) {
+      setTimeout(function () {
+        console.log(i);
+      }, i * 1000);
+    }
+
+    inside(i);
   }
 
   console.log("statement .......");
