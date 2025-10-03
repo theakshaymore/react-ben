@@ -4,14 +4,15 @@ function outer() {
     count++;
     console.log(count);
   }
-  inner();
+  return inner;
 }
 
-let instance = outer;
+outer()();
+// let instance = outer;
 
-instance();
-instance();
-instance();
+// instance();
+// instance();
+// instance();
 
 // When a function remembers its lexical environment even after the outer function has finished executing.
 
