@@ -70,6 +70,15 @@ const response = data.reduce((acc, curr) => {
 
 // console.log(response);
 
-const response2 = data.filter((i) => i.age < 15).map((i) => i.firstname);
+// const response2 = data
+//   .filter((i) => i.age < 15)
+//   .map((i) => i.firstname);
 
-console.log(response2);
+// console.log(response2);
+
+const op = data.reduce((acc, curr) => {
+  if (curr.age < 15) acc.push(curr.firstname);
+  return acc;
+}, []);
+
+console.log(op);
