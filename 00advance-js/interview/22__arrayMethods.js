@@ -38,19 +38,33 @@ const max = arr.reduce((acc, curr) => {
 // real life example
 
 const data = [
-  { firstname: "akshay", lastname: "more" },
-  { firstname: "rohit", lastname: "sawant" },
-  { firstname: "pd", lastname: "more" },
-  { firstname: "akshayzzz", lastname: "morre" },
+  { firstname: "akshay", lastname: "more", age: 10 },
+  { firstname: "rohit", lastname: "sawant", age: 20 },
+  { firstname: "pd", lastname: "more", age: 20 },
+  { firstname: "akshayzzz", lastname: "morre", age: 13 },
 ];
 
-const response = data.map((i) => {
-  return i.firstname + " " + i.lastname;
-});
+// const response = data.map((i) => {
+//   return i.firstname + " " + i.lastname;
+// });
 
-console.log(response);
+// console.log(response);
 
 // const response = data.reduce((acc, curr) => {
 //   acc = curr.firstname + " " + curr.lastname;
 //   console.log(acc);
 // }, "");
+
+// { 10 : 1, 20: 2, 13: 1}
+
+const response = data.reduce((acc, curr) => {
+  if (acc[curr.age]) {
+    acc[curr.age] = acc[curr.age] + 1;
+  } else {
+    acc[curr.age] = 1;
+  }
+  return acc;
+  //   curr.age == acc[curr.age] ? (acc = acc + 1) : (acc = curr);
+}, {});
+
+console.log(response);
