@@ -44,11 +44,11 @@ const data = [
   { firstname: "akshayzzz", lastname: "morre" },
 ];
 
-// const response = data.map((i) => {
-//   return i.firstname + " " + i.lastname;
-// });
+const response = data.map((i) => {
+  return i.firstname + " " + i.lastname;
+});
 
-// console.log(response);
+console.log(response);
 
 // const response = data.reduce((acc, curr) => {
 //   acc = curr.firstname + " " + curr.lastname;
