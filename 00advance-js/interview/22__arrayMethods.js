@@ -44,7 +44,13 @@ const data = [
   { firstname: "akshayzzz", lastname: "morre" },
 ];
 
-const response = data.reduce((acc, curr) => {
-  acc = curr.firstname + " " + curr.lastname;
-  console.log(acc);
-}, "");
+// const response = data.map((i) => {
+//   return i.firstname + " " + i.lastname;
+// });
+
+// console.log(response);
+
+// const response = data.reduce((acc, curr) => {
+//   acc = curr.firstname + " " + curr.lastname;
+//   console.log(acc);
+// }, "");
