@@ -5,5 +5,6 @@ arr = [1, 2, 5, 7, 8];
 
 // filter
 const res = arr.filter((i) => i % 2 == 0);
+const res2 = arr.filter((i) => i > 5);
 
-console.log(res);
+console.log(res2);
