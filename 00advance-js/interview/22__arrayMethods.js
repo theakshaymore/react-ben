@@ -1,7 +1,7 @@
 "use strict";
 
 // map
-let arr = [1, 2, 5, 7, 8];
+let arr = [1, 9, 5, 7, 8];
 
 // const res = arr.map((i) => console.log(i));
 
@@ -20,4 +20,11 @@ const output = arr.reduce(function (acc, curr) {
   return acc;
 }, 0);
 
-console.log(output);
+// console.log(output);
+
+const max = arr.reduce((acc, curr) => {
+  if (curr > acc) acc = curr;
+  return acc;
+}, 0);
+
+console.log(max);
