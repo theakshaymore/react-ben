@@ -68,4 +68,10 @@ const response = data.reduce((acc, curr) => {
   //   curr.age == acc[curr.age] ? (acc = acc + 1) : (acc = curr);
 }, {});
 
-console.log(response);
+// console.log(response);
+
+const response2 = data.filter((i) => {
+  if (i.age < 15) return i.firstname;
+});
+
+console.log(response2);
