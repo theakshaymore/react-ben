@@ -58,11 +58,12 @@ const data = [
 // { 10 : 1, 20: 2, 13: 1}
 
 const response = data.reduce((acc, curr) => {
-  if (acc[curr.age]) {
-    acc[curr.age] = acc[curr.age] + 1;
-  } else {
-    acc[curr.age] = 1;
-  }
+  //   if (acc[curr.age]) {
+  //     acc[curr.age] = acc[curr.age] + 1;
+  //   } else {
+  //     acc[curr.age] = 1;
+  //   }
+  acc[curr.age] ? ++acc[curr.age] : (acc[curr.age] = 1);
   return acc;
   //   curr.age == acc[curr.age] ? (acc = acc + 1) : (acc = curr);
 }, {});
