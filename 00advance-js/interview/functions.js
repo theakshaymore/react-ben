@@ -33,15 +33,16 @@ function run3() {
 function pass() {
   //
 }
-run3(pass);
+// run3(pass);
 
-a();
-b();
-
-function a() {
-  console.log("Function 1");
+function a(b) {
+  // console.log("Function 1");
+  b();
 }
 
 var b = function () {
   console.log("Function 2");
 };
+
+// a(b);
+// b();
