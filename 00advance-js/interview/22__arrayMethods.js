@@ -70,8 +70,6 @@ const response = data.reduce((acc, curr) => {
 
 // console.log(response);
 
-const response2 = data.filter((i) => {
-  if (i.age < 15) return i.firstname;
-});
+const response2 = data.filter((i) => i.age < 15).map((i) => i.firstname);
 
 console.log(response2);
