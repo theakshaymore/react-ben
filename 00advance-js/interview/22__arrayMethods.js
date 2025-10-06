@@ -31,4 +31,20 @@ const max = arr.reduce((acc, curr) => {
   return acc;
 }, 0);
 
-console.log(max);
+// console.log(max);
+
+// -------------------------------------------------------
+
+// real life example
+
+const data = [
+  { firstname: "akshay", lastname: "more" },
+  { firstname: "rohit", lastname: "sawant" },
+  { firstname: "pd", lastname: "more" },
+  { firstname: "akshayzzz", lastname: "morre" },
+];
+
+const response = data.reduce((acc, curr) => {
+  acc = curr.firstname + " " + curr.lastname;
+  console.log(acc);
+}, "");
