@@ -8,3 +8,6 @@ const res = arr.filter((i) => i % 2 == 0);
 const res2 = arr.filter((i) => i > 5);
 
 console.log(res2);
+
+// reduce
+arr;
