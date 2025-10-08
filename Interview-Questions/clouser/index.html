@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=
+     , initial-scale=1.0"
+    />
+    <title>Clouser</title>
+  </head>
+  <body>
+    <div>
+      <h1>Ben Clouser</h1>
+      <button id="orange">Orange</button>
+      <button id="green">Green</button>
+    </div>
+  </body>
+
+  <script>
+    function handleClick(name) {
+      return function run() {
+        document.body.style.backgroundColor = `${name}`;
+      };
+    }
+
+    document.getElementById("orange").onclick = handleClick("orange");
+
+    document.getElementById("green").onclick = handleClick("green");
+  </script>
+</html>
