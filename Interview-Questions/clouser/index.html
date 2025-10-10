@@ -19,7 +19,8 @@
 
   <script>
     function handleClick(name) {
-      return function run() {
+      // name
+      return function () {
         document.body.style.backgroundColor = `${name}`;
       };
     }
