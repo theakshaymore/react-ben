@@ -15,16 +15,23 @@ async function main() {
 // .............................................................
 
 const myPromise = new Promise((resolve, reject) => {
-  resolve("promise resolved......");
-  reject("promise rejected......");
+  setTimeout(() => {
+    resolve("promise resolved......");
+  }, 5000);
+
+  //   reject("promise rejected......");
 });
 
 async function handlePromise() {
+  console.log("before promise.....");
   const response = await myPromise;
-  return response;
-  //   console.log(response);
+  //   return response;
+  console.log(response);
+  console.log("after promise.....");
 }
 
-handlePromise()
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err));
+handlePromise();
+
+// handlePromise()
+//   .then((res) => console.log(res))
+//   .catch((err) => console.log(err));
