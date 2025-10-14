@@ -32,7 +32,7 @@ const url = "https://akshaymore.com/rest.json";
 const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(
   url
 )}`;
-const myPromise = fetch(proxyUrl);
+const myPromise = fetch("https://api.github.com/users/theakshaymore");
 
 myPromise
   .then((res) => {
