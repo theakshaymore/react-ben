@@ -9,7 +9,7 @@
 // - used in fetch(), async/await, import
 
 function addDataToDB(data) {
-  let res = false;
+  let res = true;
   return res;
 }
 
@@ -27,3 +27,7 @@ promise
   .catch((error) => {
     console.log(error);
   });
+
+const myPromise = fetch("https://akshaymore.com/rest.json");
+
+console.log(myPromise);
