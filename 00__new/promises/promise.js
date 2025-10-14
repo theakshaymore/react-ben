@@ -28,6 +28,17 @@ promise
     console.log(error);
   });
 
-const myPromise = fetch("https://akshaymore.com/rest.json");
+const url = "https://akshaymore.com/rest.json";
+const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(
+  url
+)}`;
+const myPromise = fetch(proxyUrl);
 
-console.log(myPromise);
+myPromise
+  .then((res) => {
+    return res.json();
+  })
+  .then((data) => console.log(data))
+  .catch((err) => {
+    console.log(err);
+  });
