@@ -1,14 +1,12 @@
 # ⚛️ React-Ben — A Curious Lab for React Developers (mostly for myself!)
 
-**React-Ben** is my personal React playground — a mix of notes, snippets, experiments, and lessons learned while building stuff in React.  
-It’s basically a living notebook where ideas evolve, patterns break, and the occasional “aha!” moment gets written down.
+**React-Ben** is my personal React playground — a mix of notes, snippets, experiments, and lessons learned while building stuff in React.
 
 ---
 
 ## 💡 Why “Ben”?
 
-The name comes from **Ben Awad**, a YouTuber whose React videos I used to binge while learning.  
-There’s no deep meaning behind it — just a nod to where it all started.
+The name comes from **Ben Awad**, a YouTuber whose React videos I used to binge while learning.
 
 ---
 
