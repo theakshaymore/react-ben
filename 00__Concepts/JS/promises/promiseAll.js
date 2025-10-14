@@ -11,8 +11,8 @@ function getPosts() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       console.log("✅ Posts fetched");
-      resolve(["Post 1", "Post 2"]);
-      //   reject("errrrr");
+      //   resolve(["Post 1", "Post 2"]);
+      reject("errrrr");
     }, 4000);
   });
 }
@@ -28,12 +28,28 @@ function getComments() {
 
 console.log("Starting all requests.....");
 
+// IMP: Promise.all
 // Promise.all([getUser(), getPosts(), getComments()]).then((res) => {
 //   console.log(res[0]);
 //   console.log(res[0]);
 //   console.log(res[0]);
 // });
 
+// IMP: Promise.race
 // Promise.race([getUser(), getPosts(), getComments()]).then((res) => {
 //   console.log("Winner: ", res);
 // });
+
+// IMP: Promise.allSettled
+// Promise.allSettled([getUser(), getPosts(), getComments()]).then((res) => {
+//   console.log(res[0]);
+//   console.log(res[0]);
+//   console.log(res[0]);
+// });
+
+// IMP: Promise.allSettled
+Promise.any([getUser(), getPosts(), getComments()]).then((res) => {
+  console.log(res[0]);
+  console.log(res[0]);
+  console.log(res[0]);
+});
