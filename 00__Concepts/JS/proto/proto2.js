@@ -7,4 +7,19 @@ Person.prototype.getName = function () {
 };
 
 const object = new Person("saket");
-object.getName();
+// object.getName();
+
+class Student {
+  constructor() {}
+
+  getName() {
+    return `inside the student class`;
+  }
+}
+
+const obj = new Student();
+console.log(obj.getName());
+
+const obj2 = { __proto__: Student.prototype };
+
+console.log(obj2.getName());
