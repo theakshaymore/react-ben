@@ -18,8 +18,10 @@ class Student {
 }
 
 const obj = new Student();
-console.log(obj.getName());
 
-const obj2 = { __proto__: Student.prototype };
+console.log(obj.__proto__);
+// console.log(obj.getName());
 
-console.log(obj2.getName());
+// const obj2 = { __proto__: Student.prototype };
+
+// console.log(obj2.getName());
