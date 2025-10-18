@@ -1,9 +1,14 @@
 import React from "react";
 
-function Second({ username, onChnage }) {
+function Second({ username, onChange }) {
   return (
     <div>
       <p>{username}</p>
+      <input
+        type="text"
+        value={username}
+        onChange={(event) => onChange(event.target.value)}
+      />
     </div>
   );
 }
