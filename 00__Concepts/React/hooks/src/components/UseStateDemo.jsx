@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function UseStateDemo() {
   //
@@ -35,10 +35,17 @@ function UseStateDemo() {
   }
 
   function handleUserChange(event) {
+    // document.title = "akshay";
     const { name, value } = event.target;
 
     setUser({ ...user, [name]: value });
+    localStorage.setItem("user", JSON.stringify(user));
   }
+
+  useEffect(() => {
+    const data = localStorage.getItem("user");
+    console.log(JSON.parse(data));
+  }, []);
 
   return (
     <>
