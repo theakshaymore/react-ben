@@ -18,7 +18,7 @@ function UseStateDemo() {
     // setCount((prev) => prev + 1);
   }
 
-  function handleUserChange(fieldName, fieldValue) {
+  function handleUserChangeWithSwitch(fieldName, fieldValue) {
     switch (fieldName) {
       case "username":
         setUser({ ...user, username: fieldValue });
@@ -34,13 +34,20 @@ function UseStateDemo() {
     }
   }
 
+  function handleUserChange(event) {
+    const { name, value } = event.target;
+
+    setUser({ ...user, [name]: value });
+  }
+
   return (
     <>
       <hr />
       <h2>useState()</h2>
       <p>{count}</p>
       <button onClick={handleChange}>increase count</button>
-      <div>
+      {/* for switch case */}
+      {/* <div>
         <input
           type="text"
           name="username"
@@ -67,6 +74,38 @@ function UseStateDemo() {
           onChange={(event) =>
             handleUserChange(event.target.name, event.target.value)
           }
+        />
+        <br />
+        <button type="submit">update user data</button>
+        <br />
+        <ul>
+          <li>{user.username}</li>
+          <li>{user.age}</li>
+          <li>{user.email}</li>
+        </ul>
+      </div> */}
+      {/* optimsed w/o switch case */}
+      <div>
+        <input
+          type="text"
+          name="username"
+          placeholder="enter new username"
+          value={user.username}
+          onChange={handleUserChange}
+        />
+        <input
+          type="text"
+          name="age"
+          placeholder="enter new age"
+          value={user.age}
+          onChange={handleUserChange}
+        />
+        <input
+          type="text"
+          name="email"
+          placeholder="enter new email"
+          value={user.email}
+          onChange={handleUserChange}
         />
         <br />
         <button type="submit">update user data</button>
