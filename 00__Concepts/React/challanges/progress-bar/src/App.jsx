@@ -53,6 +53,7 @@ function App() {
           {progress}%
         </div>
       </div>
+      {progress === 100 && <p>DONE....! 👍</p>}
     </>
   );
 }
