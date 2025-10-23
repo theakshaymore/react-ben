@@ -8,22 +8,28 @@ function App() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve("promise1 done....");
-      }, 3000);
+      }, 1000);
     });
   }
   function promise2() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve("promise2 done....");
-      }, 5000);
+      }, 1000);
     });
   }
-
   function promise3() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve("promise3 done....");
-      }, 3000);
+      }, 2000);
+    });
+  }
+  function promise4() {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve("promise4 done....");
+      }, 1000);
     });
   }
 
@@ -35,12 +41,16 @@ function App() {
       console.log(result1);
 
       const result2 = await promise2();
-      setProgress(70);
+      setProgress(50);
       console.log(result2);
 
       const result3 = await promise3();
-      setProgress(100);
+      setProgress(70);
       console.log(result3);
+
+      const result4 = await promise4();
+      setProgress(100);
+      console.log(result4);
     };
     loadData();
   }, []);
