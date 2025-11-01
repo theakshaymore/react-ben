@@ -12,3 +12,6 @@ function greet(greeting, desgination, companyName) {
 greet.call(person, "Hello", "Developer", "Google");
 
 greet.apply(person, ["Hi", "Engineer", "Intel"]);
+
+const bindRun = greet.bind(person, "Hello", "Developer", "Microsoft");
+bindRun();
