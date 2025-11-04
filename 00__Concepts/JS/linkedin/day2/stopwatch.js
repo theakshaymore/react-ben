@@ -34,13 +34,16 @@ class Stopwatch {
   }
 
   getTime() {
-    const time = this.getTime();
-    const minutes = Math.floor((time / (1000 * 60)) % 60);
     if (this.isRunning) {
-      //   return Date.now() - this.startTime;
-      return `${minutes}`;
+      return Date.now() - this.startTime;
     }
     return this.timePassed;
+  }
+
+  getFormattedTime() {
+    const time = this.getTime();
+    const minutes = Math.floor((time / (1000 * 60)) % 60);
+    return minutes;
   }
 }
 
@@ -48,7 +51,7 @@ const user = new Stopwatch();
 
 user.start();
 
-setTimeout(() => console.log(user.getTime()), 1000);
+setTimeout(() => console.log(user.getFormattedTime()), 1000);
 
 user.stop();
 console.log(user.getTime());
