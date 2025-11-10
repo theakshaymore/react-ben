@@ -7,7 +7,7 @@ const myPromise = new Promise((resolve, reject) => {
     } else {
       reject("promise rejected....");
     }
-  }, 2000);
+  }, 1000);
 });
 
 myPromise
