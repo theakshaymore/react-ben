@@ -1,9 +1,13 @@
-function flatten(arr) {
-  return arr.reduce(
-    (acc, val) =>
-      Array.isArray(val) ? acc.concat(flatten(val)) : acc.concat(val),
-    []
-  );
+function findRepeating(str) {
+  const seen = new Set();
+  for (let ch of str) {
+    if (seen.has(ch)) {
+      return ch;
+    } else {
+      seen.add(ch);
+    }
+  }
 }
 
-console.log(flatten([1, 2, 3, [4, 5, [7, 8]], 9, 10]));
+let str = "aksshay";
+console.log(findRepeating(str));
