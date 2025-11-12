@@ -23,3 +23,7 @@ function VCET(newJoinee) {
 
 const admissionProcess = VCET(10);
 console.log(admissionProcess());
+console.log(admissionProcess());
+console.log(admissionProcess());
+console.log(admissionProcess());
+console.log(admissionProcess());
