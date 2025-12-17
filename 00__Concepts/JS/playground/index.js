@@ -8,22 +8,24 @@ const person = {
   Brijesh: 32,
 };
 
-for (let i in person) {
-  if (person[i] >= 18) {
-    console.log(i, person[i]);
-  }
-}
-
-// console.log(person);
-
-// console.log("--------------------------");
-
-const arr = Object.entries(person);
 const keys = Object.keys(person);
-const values = Object.values(person);
 
-// console.log(values);
+const adults = keys.filter((key) => person[key] >= 18);
 
-// for (let i in values) {
-//   console.log(values[i]);
-// }
+const sorted = adults.sort((a, b) => person[a] - person[b]);
+
+const sorted2 = adults.sort((a, b) => {
+  let nameA = a.toUpperCase();
+  let nameB = b.toUpperCase();
+
+  return nameA > nameB ? 1 : -1;
+
+  return 0;
+});
+
+console.log(sorted);
+console.log(sorted2);
+
+// const arr = Object.entries(person);
+// const keys = Object.keys(person);
+// const values = Object.values(person);
