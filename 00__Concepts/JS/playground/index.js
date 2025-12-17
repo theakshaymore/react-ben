@@ -12,9 +12,9 @@ const keys = Object.keys(person);
 
 const adults = keys.filter((key) => person[key] >= 18);
 
-const sorted = adults.sort((a, b) => person[a] - person[b]);
+const sortedByAge = [...adults].sort((a, b) => person[a] - person[b]);
 
-const sorted2 = adults.sort((a, b) => {
+const sortedByChar = [...adults].sort((a, b) => {
   let nameA = a[a.length - 1].toUpperCase();
   let nameB = b[b.length - 1].toUpperCase();
 
@@ -23,8 +23,8 @@ const sorted2 = adults.sort((a, b) => {
   return 0;
 });
 
-console.log(sorted);
-console.log(sorted2);
+console.log(sortedByAge);
+console.log(sortedByChar);
 
 // const arr = Object.entries(person);
 // const keys = Object.keys(person);
