@@ -10,22 +10,18 @@ const person = {
 
 const keys = Object.keys(person);
 
-const adults = keys.filter((key) => person[key] >= 18);
+const res = keys.filter((key) => person[key] >= 18);
 
-const sortedByAge = [...adults].sort((a, b) => person[a] - person[b]);
+const sorted1 = [...res].sort((a, b) => person[a] - person[b]);
 
-const sortedByChar = [...adults].sort((a, b) => {
+const sorted2 = [...res].sort((a, b) => {
   let nameA = a[a.length - 1].toUpperCase();
   let nameB = b[b.length - 1].toUpperCase();
 
-  return nameA > nameB ? 1 : -1;
+  return nameA - nameB ? 1 : -1;
 
-  return 0;
+  return0;
 });
 
-console.log(sortedByAge);
-console.log(sortedByChar);
-
-// const arr = Object.entries(person);
-// const keys = Object.keys(person);
-// const values = Object.values(person);
+console.log(sorted1);
+console.log(sorted2);
