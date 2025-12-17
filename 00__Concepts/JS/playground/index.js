@@ -8,4 +8,16 @@ const person = {
   Brijesh: 32,
 };
 
-console.log(person);
+// console.log(person);
+
+// console.log("--------------------------");
+
+const arr = Object.entries(person);
+const keys = Object.keys(person);
+const values = Object.values(person);
+
+console.log(values);
+
+// for (let i in values) {
+//   console.log(values[i]);
+// }
