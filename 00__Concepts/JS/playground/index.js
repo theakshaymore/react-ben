@@ -15,8 +15,10 @@ const res = keys.filter((key) => person[key] >= 18);
 const sorted1 = [...res].sort((a, b) => person[a] - person[b]);
 
 const sorted2 = [...res].sort((a, b) => {
-  let nameA = a[a.length - 1].toUpperCase();
-  let nameB = b[b.length - 1].toUpperCase();
+  //   let nameA = a[a.length - 1].toUpperCase();
+  //   let nameB = b[b.length - 1].toUpperCase();
+  let nameA = a.slice(-1).toUpperCase();
+  let nameB = b.slice(-1).toUpperCase();
 
   return nameA - nameB ? 1 : -1;
 
@@ -25,3 +27,5 @@ const sorted2 = [...res].sort((a, b) => {
 
 console.log(sorted1);
 console.log(sorted2);
+
+//
