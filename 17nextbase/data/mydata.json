@@ -1,0 +1,34 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "name": "akshay",
+      "email": "akshay@gmail.com",
+      "mob": 1122332
+    },
+    {
+      "id": 1,
+      "name": "akshay",
+      "email": "akshay@gmail.com",
+      "mob": 1122332
+    },
+    {
+      "id": 1,
+      "name": "akshay",
+      "email": "akshay@gmail.com",
+      "mob": 1122332
+    },
+    {
+      "id": 1,
+      "name": "akshay",
+      "email": "akshay@gmail.com",
+      "mob": 1122332
+    },
+    {
+      "id": 1,
+      "name": "akshay",
+      "email": "akshay@gmail.com",
+      "mob": 1122332
+    }
+  ]
+}
